@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react"
+import FeaturedAnime from "./components/FeaturedAnime/FeaturedAnime"
+import "./App.scss"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return(
+            <div>
+                <header>Heding goes here</header>
+                <main>
+                    <FeaturedAnime 
+                        apiUrl="https://private-anon-bb69c747b6-jikan.apiary-proxy.com/v3/top/anime/"
+                        page="1"
+                        sortBy="bypopularity"
+                        title="Most Popular Anime"
+                    />
+                    <FeaturedAnime 
+                        apiUrl="https://private-anon-bb69c747b6-jikan.apiary-proxy.com/v3/top/anime/"
+                        page="1"
+                        sortBy="airing"
+                        title="Top Airing Anime"
+                    />
+                    <FeaturedAnime 
+                        apiUrl="https://private-anon-bb69c747b6-jikan.apiary-proxy.com/v3/top/anime/"
+                        page="1"
+                        sortBy="upcoming"
+                        title="Top Upcoming Anime"
+                    />
+                </main>
+                <footer>Footer goes here</footer>
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App

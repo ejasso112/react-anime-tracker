@@ -1,0 +1,22 @@
+.featuredAnime {
+    padding: 8px 0;
+
+    &__heading {
+        font-size: 1.2vw;
+        padding: 8px 0
+    }
+
+    &__content {
+        display: flex;
+    }
+
+    &__item{
+        padding-left: .1vw;
+    }
+
+    &__img{
+        object-fit: cover;
+        width: calc(8vw * 1.5);
+        height: calc(12vw * 1.5);
+    }
+}
