@@ -1,0 +1,83 @@
+.banner {
+    position: relative;
+    background: radial-gradient(circle at 75%, rgba($color: #000000, $alpha: 0.0) 16%, rgba($color: #000000, $alpha: 0.5) 60%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 2vw #000000;
+
+    &__img {
+        display: block;
+        position: absolute;
+        left: calc(75% - 8vw * .7);
+        border-radius: .2vw;
+        box-shadow: 0 0 2vw rgba($color: #000000, $alpha: 0.5);
+        width: calc(8vw * 1.5);
+        height: calc(12vw * 1.5);
+        object-fit: cover;
+    }
+    
+    &__content {
+        padding: 1vw;
+        align-self: flex-end;;
+        position: absolute;
+        left: 17.2%;
+    }
+
+    &__heading {
+        padding: 0.6vw 0;
+        text-transform: uppercase;
+        letter-spacing: 1vw;
+        font-weight: 600;
+        font-size: 2vw;
+    }
+
+    &__title {
+        width: 52vw;
+        padding: 0.1vw 0;
+        font-weight: normal;
+        font-size: 1.2vw;
+    }
+
+    &__synopsis, &__date {
+        padding: 0.02vw 0;
+        font-size: 0.8vw;
+    }
+
+    &__type {
+        font-size: 0.7vw;
+    }
+
+    &__genres {
+        &__item {
+            color: #E31B6D;
+            font-size: .7vw;
+            border-radius: .6vw;
+            padding: .1vw .8vw .1vw 0;
+            display: inline;
+
+            &--main {
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    &__button {
+        position: absolute;
+        background-color: rgba($color: #000000, $alpha: 1.0);
+        width: 5vw;
+        height: 5vw;
+        cursor: pointer;
+    }
+
+    &__prev {
+        left: 10%
+    }
+
+    &__next {
+        right: 10%
+    }
+
+
+}

@@ -1,22 +1,106 @@
 .featuredAnime {
-    padding: 8px 0;
-
+    padding: 0.4vw 0.8vw;
+    border-bottom: .2vw solid;
+    border-image: linear-gradient(90deg, rgba($color: #FFF, $alpha: 0), rgba($color: #FFF, $alpha: .05), rgba($color: #FFF, $alpha: 0));
+    border-image-slice: 1;
     &__heading {
-        font-size: 1.2vw;
-        padding: 8px 0
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: .2vw;
+        font-size: 1.1vw;
+        padding: 0.4vw 0;
     }
 
     &__content {
         display: flex;
+        justify-items: center;
+        align-items: center;
+        height: calc(12vw * 1.4);
+        scroll-snap-type: x mandatory;
+        overflow-x: scroll;
+
+        &--extended {
+            height: calc(12vw * 1.4 + (12vw * 1.2 * 4.5));
+            flex-wrap: wrap;
+            overflow-x: visible;
+        }
     }
 
     &__item{
-        padding-left: .1vw;
-    }
+        scroll-snap-align: start;
+        z-index: 0;
+        position: relative;
+        margin-left: .15vw;
+        cursor: pointer;
 
-    &__img{
-        object-fit: cover;
-        width: calc(8vw * 1.5);
-        height: calc(12vw * 1.5);
+        &:hover {
+            transform: scale(1.1);
+            transition: ease-in 156ms;
+            z-index: 1;
+
+            .featuredAnime__item__imgOverlay {
+                background-color: rgba($color: #000000, $alpha: 0.4);
+                transition: ease-in 80ms;
+            }
+        }
+
+        &__img{
+            border-radius: .2vw;
+            display: block;
+            object-fit: cover;
+            width: calc(8vw * 1.2);
+            height: calc(12vw * 1.2);
+        }
+        
+        &__imgOverlay {
+            border-radius: .2vw;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    
+        &__content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        span {
+            color: rgba($color: #FFFFFF, $alpha: .5);
+        }
+
+        &__top {
+            background-color: rgba($color: #000000, $alpha: .75);
+            padding-bottom: 0.6vw;
+        }
+        &__title {
+            font-size: .8vw;
+            padding: .3vw .4vw .6vw .4vw;
+        }
+
+        &__eps, &__air, &__score, &__type {
+            font-size: .7vw;
+            padding: .2vw .4vw;
+        }
+
+        &__score {
+            position: absolute;
+            bottom: 25%;
+            background-color: rgba($color: #000000, $alpha: .75);
+            right: 0;
+            padding: .3vw;
+        }
+
+        &__type {
+            position: absolute;
+            background-color: rgba($color: #000000, $alpha: .75);
+            padding: .1vw .8vw;
+            border-radius: .6vw;
+            bottom: .3vw;
+            left: .4vw
+        }
     }
 }
