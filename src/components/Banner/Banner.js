@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import BannerItem from "./BannerItem"
 import "./Banner.scss"
 
 class Banner extends Component{
@@ -29,7 +30,7 @@ class Banner extends Component{
                 })
             })
             
-        this.interval = setInterval(this.handleClickNext, 8000)
+        this.interval = setInterval(this.handleClickNext, 10000)
     }
 
     handleClickNext = () => {
@@ -49,39 +50,24 @@ class Banner extends Component{
     }
 
     render =() => {
-        let date = this.state.isLoaded && this.state.data[this.state.index].airing_start
-        let newDate = date && new Intl.DateTimeFormat("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "2-digit",
-            hour: 'numeric',
-            minute: 'numeric'
-        }).format(new Date(date))
-
-        let displayDate = newDate ? newDate:"-"
         return (
-            <div className="banner">
+            <header className="banner">
                 {!this.state.isLoaded ?
-                    <h1>Loading...</h1>:[
-                    <div className="banner__content">
-                        <h1 className="banner__heading">{`${this.state.season} ${this.state.year}`}</h1>
-                        <h3 className="banner__title">{this.state.data[this.state.index].title}</h3>
-                        <p className="banner__synopsis">{this.state.data[this.state.index].sysnopsis}</p>
-                        <p className="banner__date">Date Airing: {displayDate}</p><br />
-                        <p className="banner__type">{this.state.data[this.state.index].type}</p>
-                        <ul className="banner__genres">
-                            <li className="banner__genres__item banner__genres__item--main">Genre:</li>
-                            <li className="banner__genres__item">Drama</li>
-                            <li className="banner__genres__item">Fantasy</li>
-                            <li className="banner__genres__item">Psychological</li>
-                            <li className="banner__genres__item">Thriller</li>
-                        </ul>
-                    </div>,
-                    <img className="banner__img" src={this.state.data[this.state.index].image_url} alt={this.state.data[this.state.index].title}></img>,
-                    <div onClick={this.handleClickPrev} className="banner__prev banner__button">Prev</div>,
-                    <div onClick={this.handleClickNext} className="banner__next banner__button">Next</div>]
+                    <h1>Loading...</h1>:
+                    <BannerItem 
+                        key={this.state.data[this.state.index].mal_id}
+                        season={this.state.season}
+                        year={this.state.year}
+                        item={this.state.data[this.state.index]}
+                    />
                 }
-            </div>
+                <div onClick={this.handleClickPrev} className="banner__prev banner__button">
+                    <svg className="banner__button__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>
+                </div>
+                <div onClick={this.handleClickNext} className="banner__next banner__button">
+                    <svg className="banner__button__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+                </div>
+            </header>
         )
     }
 }

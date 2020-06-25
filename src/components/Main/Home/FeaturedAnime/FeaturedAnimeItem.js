@@ -7,9 +7,11 @@ class FeaturedAnimeItem extends Component {
             item: props.item,
             isHovered: false,
             isCaroulsell: props.isCaroulsell,
+            isAnimeClick: props.isAnimeClick
         }
         this.handleMouseOver = this.handleMouseOver.bind(this)
         this.handleMouseOut = this.handleMouseOut.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
     handleMouseOver() {
@@ -20,6 +22,9 @@ class FeaturedAnimeItem extends Component {
         this.setState({isHovered: false})
     }
 
+    handleClick() {
+        this.state.isAnimeClick(this.state.item.mal_id)
+    }
     render() {
         let displayEps = this.state.item.episodes ? this.state.item.episodes : 0
         let displayAir = this.state.item.start_date ? this.state.item.start_date : "-"
@@ -27,7 +32,7 @@ class FeaturedAnimeItem extends Component {
         let isNotCarousell = !this.state.isCaroulsell ? "featuredAnime__item--extended" : ""
 
         return(
-            <div onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} className={`featuredAnime__item + ${isNotCarousell}`}>
+            <div onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={this.handleClick} className={`featuredAnime__item + ${isNotCarousell}`}>
                 <img className="featuredAnime__item__img" src={this.state.item.image_url} alt={this.state.item.title}></img>
                 <div className="featuredAnime__item__imgOverlay"></div>
                 <div style={{display: displayInfo}} className="featuredAnime__item__content">

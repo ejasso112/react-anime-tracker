@@ -3,6 +3,7 @@
     border-bottom: .2vw solid;
     border-image: linear-gradient(90deg, rgba($color: #FFF, $alpha: 0), rgba($color: #FFF, $alpha: .05), rgba($color: #FFF, $alpha: 0));
     border-image-slice: 1;
+    
     &__heading {
         text-transform: uppercase;
         font-weight: normal;
@@ -53,6 +54,7 @@
         }
         
         &__imgOverlay {
+            pointer-events: none;
             border-radius: .2vw;
             position: absolute;
             top: 0;
@@ -61,6 +63,7 @@
         }
     
         &__content {
+            pointer-events: none;
             position: absolute;
             top: 0;
             bottom: 0;

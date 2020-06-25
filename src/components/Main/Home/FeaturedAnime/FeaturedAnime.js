@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import FeaturedAnimeItem from "./FeaturedAnimeItem/FeaturedAnimeItem"
+import FeaturedAnimeItem from "./FeaturedAnimeItem"
 import "./FeaturedAnime.scss"
 
 //  url: https://private-anon-bb69c747b6-jikan.apiary-proxy.com/v3/top/anime/
@@ -18,6 +18,7 @@ class FeaturedAnime extends Component {
             sortBy: props.sortBy,
             title: props.title,
             isCaroulsell: props.isCaroulsell === false ? props.isCaroulsell : true,
+            isAnimeClick: props.isAnimeClick,
             data: {},
             isLoaded: false
         }
@@ -40,6 +41,7 @@ class FeaturedAnime extends Component {
             key={item.mal_id}
             item={item}
             isCaroulsell={this.state.isCaroulsell}
+            isAnimeClick={this.state.isAnimeClick}
         />)
         return (
             <div className="featuredAnime">
