@@ -1,0 +1,78 @@
+.overview {
+    margin: 1.5vw auto;
+    width: 66%;
+    display: flex;
+
+    &__left{
+        border-radius: .5vw;
+        padding: 1vw;
+        background-color: rgba($color: #FFFFFF, $alpha: .03);
+        min-width: calc(8vw * 1.5 - 2vw);
+        max-width: calc(8vw * 1.5 - 2vw);
+
+        &__item {
+            font-size: .8vw;
+            padding: .4vw 0;
+
+            &--span {
+                font-weight: lighter;
+                color: rgba($color: #FFFFFF, $alpha: .7);
+                font-size: .7vw;
+                
+            }
+        }   
+    }
+
+    &__right {
+        width: 100%;
+        margin-left: 2vw;
+
+        &__heading {
+            padding-bottom: .5vw;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: .5vw;
+            border-bottom: .2vw solid;
+            border-image: linear-gradient(90deg, rgba($color: #FFF, $alpha: .05) 80%, rgba($color: #FFF, $alpha: 0));
+            border-image-slice: 1;
+        }
+
+        &__trailer {
+            margin: 1vw auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba($color: #000000, $alpha: 0.4);
+            width: calc(16vw * 2.5);
+            height: calc(9vw * 2.5);
+            border: 0;
+        }
+
+        &__subheading {
+            padding-bottom: .2vw;
+            text-transform: uppercase;
+            font-weight: lighter;
+            letter-spacing: .1vw;
+            border-bottom: .2vw solid;
+            border-image: linear-gradient(90deg, rgba($color: #FFF, $alpha: .05) 50%, rgba($color: #FFF, $alpha: 0));
+            border-image-slice: 1;
+        }
+    }
+}
+
+.relatedAnime {
+    display: flex;
+    align-items: center;
+    margin: .5vw 0;
+    flex-wrap: wrap;
+
+    &__heading {
+        display: block;
+        font-weight: normal;
+        font-size: 1vw;
+        max-width: calc(8vw * 1);
+        min-width: calc(8vw * 1);
+        height: calc(12vw * 1);
+        background-image: linear-gradient(90deg, rgba($color: #FFF, $alpha: .05), rgba($color: #FFF, $alpha: 0));;
+    }
+}

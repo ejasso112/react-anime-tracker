@@ -1,0 +1,86 @@
+.animeHeading {
+    background-color: rgba($color: #FFFFFF, $alpha: .03);
+    
+    &__container {
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+        width: 66%;
+        padding: 3vw
+    }
+
+    &__img {
+        box-shadow: 0 0 1vw #000000;
+        object-fit: cover;
+        max-width: calc(8vw * 1.5);
+        min-width: calc(8vw * 1.5);
+        height: calc(12vw * 1.5);
+
+        &--loading {
+            background-color: rgba($color: #FFFFFF, $alpha: 0.05);
+            box-shadow: none;
+        }
+    }
+
+    &__content {
+        padding-left: 2vw;
+
+        &__title {
+            font-weight: normal;
+            font-size: 1.2vw;
+            &--loading {
+                color: rgba($color: #000000, $alpha: 0);
+                margin-bottom: .4vw;
+                width: 24vw;
+                background-color: rgba($color: #FFFFFF, $alpha: 0.05);
+                border-radius: 1vw;
+            }
+        }
+
+        &__altTitles {
+            font-size: .9vw;
+            margin-bottom: .4vw;
+            font-weight: normal;
+
+            span {
+                font-size: .7vw;
+                color: rgba($color: #FFFFFF, $alpha: .5);
+            }
+
+            &--loading {
+                color: rgba($color: #000000, $alpha: 0);
+                width: 32vw;
+                background-color: rgba($color: #FFFFFF, $alpha: 0.05);
+                border-radius: 1vw;
+            }
+        }
+
+        &__synopsis {
+            color: rgba($color: #FFFFFF, $alpha: .9);
+            font-size: 0.8vw;
+
+            &--loading {
+                color: rgba($color: #000000, $alpha: 0);
+                width: 50vw;
+                height: 5vw;
+                background-color: rgba($color: #FFFFFF, $alpha: 0.05);
+                border-radius: .5vw;
+            }
+        }
+    }
+
+    &__nav {
+        bottom: 0;
+        right: 3vw;
+        position: absolute;
+        display: inline-flex;
+        list-style: none;
+
+        &__item {
+            color: rgba($color: #FFFFFF, $alpha: 0.8);
+            padding: 1vw;
+            font-size: 0.7vw;
+            margin-left: 1.5vw;
+        }
+    }
+}

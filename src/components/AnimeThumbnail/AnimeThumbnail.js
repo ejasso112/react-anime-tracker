@@ -1,0 +1,60 @@
+import React, { Component } from "react"
+import "./AnimeThumbnail.scss"
+
+//item: alredy feched anime data from api
+//isHovered: update rended is isHovered is true 
+class AnimeThumbnail extends Component {
+    constructor(props) {
+        super()
+        this.state = {
+            data: props.data,
+            isHovered: false,
+        }
+        this.handleMouseOver = this.handleMouseOver.bind(this)
+        this.handleMouseOut = this.handleMouseOut.bind(this)
+    }
+
+    handleMouseOver() {
+        this.setState({isHovered: true})
+    }
+
+    handleMouseOut() {
+        this.setState({isHovered: false})
+    }
+
+    render() {
+        const entry = this.state.data
+
+        const dateFormat = require('dateformat');
+        const month = entry.startDate.month ? "mmm" : ""
+        const day = entry.startDate.day ? `${entry.startDate.month ? " " : ""}dd` : ""
+        const year = entry.startDate.year ? `${entry.startDate.month | entry.startDate.day? ", " : ""}yyyy` : ""
+        const date = new Date(entry.startDate.year, entry.startDate.month ?  entry.startDate.month - 1 : 1, entry.startDate.day)
+        
+        const displayThumbnail = entry.coverImage.large
+        const displayTitle = entry.title.userPreferred
+        const displayEps = entry.episodes ? entry.episodes : 0
+        const displayStartDate = entry.startDate.year ? dateFormat(date, month + day + year) : "Unknown"
+        const displayFormat = entry.format ? entry.format : "-"
+        const displayAvgScore = entry.averageScore ? entry.averageScore / 10 : "-"
+
+        return(
+            <div onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} className="thumbnail">
+                <img className="thumbnail__img" src={displayThumbnail} alt={displayTitle}></img>
+                <div className="thumbnail__imgOverlay"></div>
+                {this.state.isHovered &&
+                <div className="thumbnail__content">
+                    <div className="thumbnail__details">
+                        <h4 className="thumbnail__title">{displayTitle}</h4>
+                        <p className="thumbnail__eps"><span>Episodes: </span>{displayEps}</p>
+                        <p className="thumbnail__air"><span>Air Date: </span>{displayStartDate}</p>
+                    </div>
+                    <p className="thumbnail__score"><span>★ </span>{displayAvgScore}</p>
+                    <p className="thumbnail__type">{displayFormat}</p>
+                </div>}
+            </div>
+        )
+    }
+}
+
+export default AnimeThumbnail

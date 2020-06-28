@@ -1,21 +1,33 @@
 import React, { Component } from "react"
+import {BrowserRouter as Router, Route} from "react-router-dom"
+
+import AnimeSeasonalFetch from "./components/AnimeSeasonalBanner/AnimeSeasonalFetch"
+import Home from "./components/Home/Home"
 import Footer from "./components/Footer/Footer"
-import Banner from "./components/Banner/Banner"
-import Main from "./components/Main/Main"
+
 import "./App.scss"
 
 class App extends Component {
     render() {
         return(
-            <div>
-                <Banner 
-                    apiUrl="https://private-anon-f42d8b7f1b-jikan.apiary-proxy.com/v3/season/"
-                    season="summer"
-                    year="2020"
-                />
-                <Main />
-                <Footer />
-            </div>
+            <Router>
+                <div>
+                    <header>
+                        <AnimeSeasonalFetch
+                            page={1}
+                            perPage={50}
+                            season="SUMMER"
+                            seasonYear={2020}
+                            type="ANIME"
+                            sort="POPULARITY_DESC"
+                        />
+                    </header>
+                    <main>
+                        <Route path="/" exact component={Home} />
+                    </main>
+                    <Footer />
+                </div>
+            </Router>
         )
     }
 }
