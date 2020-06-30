@@ -19,7 +19,6 @@ class AnimeCarouselFetch extends Component {
     }
 
     componentDidMount() {
-
         const query = `
             query ($page: Int, $perPage: Int, $status: MediaStatus, $type: MediaType, $sort: [MediaSort]) {
                 Page(page: $page, perPage: $perPage) {

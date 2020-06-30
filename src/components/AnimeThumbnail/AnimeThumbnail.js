@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import TextTruncate from 'react-text-truncate'
 import "./AnimeThumbnail.scss"
 
 //item: alredy feched anime data from api
@@ -8,23 +9,22 @@ class AnimeThumbnail extends Component {
         super()
         this.state = {
             data: props.data,
-            isHovered: false,
+            truncate: 1
         }
         this.handleMouseOver = this.handleMouseOver.bind(this)
         this.handleMouseOut = this.handleMouseOut.bind(this)
     }
 
     handleMouseOver() {
-        this.setState({isHovered: true})
+        this.setState({truncate: 4})
     }
 
     handleMouseOut() {
-        this.setState({isHovered: false})
+        this.setState({truncate: 1})
     }
 
     render() {
         const entry = this.state.data
-
         const dateFormat = require('dateformat');
         const month = entry.startDate.month ? "mmm" : ""
         const day = entry.startDate.day ? `${entry.startDate.month ? " " : ""}dd` : ""
@@ -42,16 +42,22 @@ class AnimeThumbnail extends Component {
             <div onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} className="thumbnail">
                 <img className="thumbnail__img" src={displayThumbnail} alt={displayTitle}></img>
                 <div className="thumbnail__imgOverlay"></div>
-                {this.state.isHovered &&
                 <div className="thumbnail__content">
                     <div className="thumbnail__details">
-                        <h4 className="thumbnail__title">{displayTitle}</h4>
-                        <p className="thumbnail__eps"><span>Episodes: </span>{displayEps}</p>
-                        <p className="thumbnail__air"><span>Air Date: </span>{displayStartDate}</p>
+                        <TextTruncate
+                            key={this.state.data.id}
+                            line={this.state.truncate}
+                            element="h4"
+                            containerClassName="thumbnail__title"
+                            truncateText="…"
+                            text={displayTitle}
+                        />
+                        <p className="thumbnail__eps"><span className="thumbnail__span">Episodes: </span>{displayEps}</p>
+                        <p className="thumbnail__air"><span className="thumbnail__span">Air Date: </span>{displayStartDate}</p>
                     </div>
-                    <p className="thumbnail__score"><span>★ </span>{displayAvgScore}</p>
+                    <p className="thumbnail__score"><span className="thumbnail__span">★ </span>{displayAvgScore}</p>
                     <p className="thumbnail__type">{displayFormat}</p>
-                </div>}
+                </div>
             </div>
         )
     }

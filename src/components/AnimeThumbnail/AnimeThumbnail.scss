@@ -1,17 +1,83 @@
-.thumbnail{
-    position: relative;
-    z-index: 0;
-    margin-left: .15vw;
-    cursor: pointer;
-    scroll-snap-align: start;
+@mixin position($top, $right: $top, $bottom: $top, $left: $right) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
 
-    &--loading{
-        margin-left: .15vw;
-        background-color: rgba($color: #FFFFFF, $alpha: 0.03);
-        border-radius: .2vw;
-        width: calc(8vw * 1.2);
-        min-width: calc(8vw * 1.2);
-        height: calc(12vw * 1.2);
+.thumbnail {
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 calc(8px * 18);
+    max-width: calc(8px * 22);
+    margin: 16px 5px 22px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:before {
+        display: block;
+        padding-top: 150%;
+        content: "";
+    }
+
+    &__img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @include position(0);
+        object-fit: cover;
+    }
+
+    &__imgOverlay {
+        position: absolute;
+        @include position(0);
+    }
+
+    &__content {
+        pointer-events: none;
+        position: absolute;
+        @include position(86%, 0, -86%, 0);
+    }
+
+    &__details {
+        background-color: rgba($color: #000000, $alpha: .75);
+        padding: .4em .3em;
+    }
+
+    &__title {
+        font-weight: normal;
+        font-size: .95em;
+        padding-bottom: 1em;
+    }
+
+    &__eps, &__air {
+        font-size: .8em;
+        padding: .2em 0;
+
+    }
+
+    &__score {
+        font-size: .8em;
+        position: absolute;
+        bottom: 25%;
+        background-color: rgba($color: #000000, $alpha: .75);
+        right: 0;
+        padding: .2em;
+    }
+
+    &__type {
+        font-size: .8em;
+        position: absolute;
+        background-color: rgba($color: #000000, $alpha: .75);
+        padding: .1em .6em;
+        border-radius: 2em;
+        bottom: .4em;
+        left: .3em
+    }
+
+    &__span {
+        color: rgba($color: #FFFFFF, $alpha: .5);
     }
 
     &:hover {
@@ -23,50 +89,95 @@
             background-color: rgba($color: #000000, $alpha: 0.4);
             transition: ease-in 80ms;
         }
+
+        .thumbnail__content {
+            @include position(0, 0, 0, 0);
+            transition: 100ms ease-in;
+        }
+/*
+        .thumbnail__heading {
+            bottom: calc(75% - .8em);
+            transition: 100ms ease-in;
+        }
+        .thumbnail__details {
+            top: 0%;
+            transition: ease-in 100ms;
+        }*/
+    }
+}
+/*
+
+
+.thumbnail{
+    position: relative;
+    flex: 1 1 calc(8px * 18);
+    z-index: 0;
+    margin: 16px 5px 22px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: calc(8px * 22);
+
+    &:before {
+        display: block;
+        padding-top: 150%;
+        content: "";
     }
 
     &__img{
-        border-radius: .2vw;
-        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @include position(0);
         object-fit: cover;
-        width: calc(8vw * 1.2);
-        height: calc(12vw * 1.2);
     }
     
     &__imgOverlay {
-        pointer-events: none;
-        border-radius: .2vw;
         position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
+        @include position(0);
     }
 
     &__content {
-        pointer-events: none;
         position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        @include position(0);
     }
 
-    span {
-        color: rgba($color: #FFFFFF, $alpha: .5);
+    &__heading {
+        position: absolute;
+        background-color: rgba($color: #000000, $alpha: .75);
+        padding: .4em .3em;
+        height: 25%;
+        @include position(auto, 0, 0, 0);
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: .9em;
     }
 
     &__details{
-        background-color: rgba($color: #000000, $alpha: .75);
-        padding-bottom: 0.6vw;
-    }
-    &__title {
-        font-size: .8vw;
-        padding: .3vw .4vw .6vw .4vw;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 100%;
+
     }
 
     &__eps, &__air, &__score, &__type {
-        font-size: .7vw;
+        font-size: .8em;
         padding: .2vw .4vw;
+
+        span {
+            color: rgba($color: #FFFFFF, $alpha: .5);
+        }
+    }
+    &__eps, &__air {
+        position: absolute;
+        top: calc(25% + .8em);
+    }
+
+    &__air {
+        top: calc(35% + .8em)
     }
 
     &__score {
@@ -74,16 +185,45 @@
         bottom: 25%;
         background-color: rgba($color: #000000, $alpha: .75);
         right: 0;
-        padding: .3vw;
+        padding: .2em;
     }
 
     &__type {
         position: absolute;
         background-color: rgba($color: #000000, $alpha: .75);
         padding: .1vw .8vw;
-        border-radius: .6vw;
-        bottom: .3vw;
-        left: .4vw
+        border-radius: 2em;
+        bottom: .4em;
+        left: .3em
     }
+
+    &:hover {
+        transform: scale(1.1);
+        transition: ease-in 156ms;
+        z-index: 1;
+
+        .thumbnail__imgOverlay {
+            background-color: rgba($color: #000000, $alpha: 0.4);
+            transition: ease-in 80ms;
+        }
+
+        .thumbnail__heading {
+            bottom: calc(75% - .8em);
+            transition: 100ms ease-in;
+        }
+        .thumbnail__details {
+            top: 0%;
+            transition: ease-in 100ms;
+        }
+    }
+
+    &--loading{
+        background-color: rgba($color: #FFFFFF, $alpha: 0.03);
+        width: 100%;
+        height: 100%;
+    }
+
 }
 
+
+*/

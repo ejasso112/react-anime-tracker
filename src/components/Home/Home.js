@@ -2,17 +2,10 @@ import React, { Component } from "react"
 import AnimeCarouselFetch from "../AnimeCarousel/AnimeCarouselFetch"
 
 class Home extends Component {
-    constructor(props) {
-        super()
-        this.state = {
-            isAnimeClick: props.isAnimeClick
-        }
-    }
-
     render() {
         return (
-            <section>
-                <AnimeCarouselFetch 
+            <div className="container">
+                <AnimeCarouselFetch
                     page={1}
                     perPage={50}
                     type="ANIME"
@@ -20,29 +13,32 @@ class Home extends Component {
                     sort="POPULARITY_DESC"
                     heading="Top Upcoming Anime"
                 />
-                <AnimeCarouselFetch 
+                <AnimeCarouselFetch
                     page={1}
                     perPage={50}
                     type="ANIME"
                     status="RELEASING"
                     sort="POPULARITY_DESC"
                     heading="Top Airing Anime"
+                    isCarousell={false}
                 />
-                <AnimeCarouselFetch 
+                <AnimeCarouselFetch
                     page={1}
                     perPage={50}
                     type="ANIME"
                     sort="TRENDING_DESC"
                     heading="Trending Anime"
+                    isCarousell={false}
                 />
-                <AnimeCarouselFetch 
+                <AnimeCarouselFetch
                     page={1}
                     perPage={50}
                     type="ANIME"
                     sort="POPULARITY_DESC"
                     heading="Most Popular Anime"
+                    isCarousell={false}
                 />
-                <AnimeCarouselFetch 
+                <AnimeCarouselFetch
                     page={1}
                     perPage={50}
                     type="ANIME"
@@ -50,7 +46,7 @@ class Home extends Component {
                     heading="All Time Favorite Anime"
                     isCarousell={false}
                 />
-            </section>
+            </div>
         )
     }
 }

@@ -1,29 +1,22 @@
 .animeCarousell {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 12px 24px;
     border-bottom: .2vw solid;
     border-image: linear-gradient(90deg, rgba($color: #FFF, $alpha: 0), rgba($color: #FFF, $alpha: .05), rgba($color: #FFF, $alpha: 0));
     border-image-slice: 1;
-    padding: 0.4vw 0.8vw;
 
     &__heading {
-        padding: 0.4vw 0;
         text-transform: uppercase;
         letter-spacing: .2vw;
-        font-size: 1.1vw;
+        font-size: 1.2em;
         font-weight: normal;
     }
 
     &__content {
         display: flex;
-        align-items: center;
-        justify-items: center;
-        height: calc(12vw * 1.4);
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-    }
-
-    &--extended {
+        justify-content: space-between;
+        padding-bottom: 12px;
         flex-wrap: wrap;
-        height: calc(12vw * 1.4 + (12vw * 1.2 * 4.5));
-        overflow-x: visible;
     }
 }

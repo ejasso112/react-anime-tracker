@@ -12,7 +12,7 @@ class App extends Component {
         return(
             <Router>
                 <div>
-                    <header>
+                    <header className="section section__header">
                         <AnimeSeasonalFetch
                             page={1}
                             perPage={50}
@@ -22,7 +22,7 @@ class App extends Component {
                             sort="POPULARITY_DESC"
                         />
                     </header>
-                    <main>
+                    <main className="section section__home">
                         <Route path="/" exact component={Home} />
                     </main>
                     <Footer />

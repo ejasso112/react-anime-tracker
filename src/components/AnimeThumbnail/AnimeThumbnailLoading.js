@@ -5,7 +5,7 @@ import React, { Component } from "react"
 class AnimeThumbnailLoading extends Component {
     render() {
         return(
-            <div className="thumbnail--loading"></div>
+            <div className="thumbnail thumbnail--loading"></div>
         )
     }
 }
