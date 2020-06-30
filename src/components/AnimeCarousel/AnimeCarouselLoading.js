@@ -13,9 +13,9 @@ class AnimeCarousellLoading extends Component {
     }
     componentDidMount() {
         const currWidth = this.myInput.current.offsetWidth
-        const newShowItems = currWidth <= 487 ? 2 :
+        const newShowItems = currWidth <= 349 ? 2 :
         currWidth <= 641 ? 3 : 
-        currWidth <= 795 ? 4 :
+        currWidth <= 707 ? 4 :
         currWidth <= 1141 ? 5 :
         currWidth <= 1327 ? 6 :
         currWidth <= 1513 ? 7 : 8

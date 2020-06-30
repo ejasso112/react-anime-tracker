@@ -20,7 +20,6 @@ class Home extends Component {
                     status="RELEASING"
                     sort="POPULARITY_DESC"
                     heading="Top Airing Anime"
-                    isCarousell={false}
                 />
                 <AnimeCarouselFetch
                     page={1}
@@ -28,7 +27,6 @@ class Home extends Component {
                     type="ANIME"
                     sort="TRENDING_DESC"
                     heading="Trending Anime"
-                    isCarousell={false}
                 />
                 <AnimeCarouselFetch
                     page={1}
@@ -36,7 +34,6 @@ class Home extends Component {
                     type="ANIME"
                     sort="POPULARITY_DESC"
                     heading="Most Popular Anime"
-                    isCarousell={false}
                 />
                 <AnimeCarouselFetch
                     page={1}
@@ -44,7 +41,6 @@ class Home extends Component {
                     type="ANIME"
                     sort="FAVOURITES_DESC"
                     heading="All Time Favorite Anime"
-                    isCarousell={false}
                 />
             </div>
         )

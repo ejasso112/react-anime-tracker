@@ -13,8 +13,7 @@ class AnimeCarouselFetch extends Component {
             type: props.type,
             heading: props.heading,
             data: {},
-            isLoading: true,
-            isCarousell: props.isCarousell
+            isLoading: true
         }
     }
 
@@ -78,7 +77,7 @@ class AnimeCarouselFetch extends Component {
 
     render() {
         return (
-            this.state.isLoading ? <AnimeCarouselLoading heading={this.state.heading} />:<AnimeCarousel heading={this.state.heading} data={this.state.data} isCarousell={this.state.isCarousell}/>
+            this.state.isLoading ? <AnimeCarouselLoading heading={this.state.heading} />:<AnimeCarousel heading={this.state.heading} data={this.state.data}/>
         )
     }
 

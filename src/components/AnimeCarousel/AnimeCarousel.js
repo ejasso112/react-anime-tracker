@@ -8,7 +8,6 @@ class AnimeCarousel extends Component {
         this.state = {
             heading: props.heading,
             data: props.data,
-            isCarousell: props.isCarousell === false ? false : true,
             pageLength: props.data.length,
             showItems: 8,
             width: 0,
@@ -21,9 +20,9 @@ class AnimeCarousel extends Component {
 
     componentDidMount() {
         const currWidth = this.myInput.current.offsetWidth
-        const newShowItems = currWidth <= 487 ? 2 :
+        const newShowItems = currWidth <= 349 ? 2 :
         currWidth <= 641 ? 3 : 
-        currWidth <= 795 ? 4 :
+        currWidth <= 707 ? 4 :
         currWidth <= 1141 ? 5 :
         currWidth <= 1327 ? 6 :
         currWidth <= 1513 ? 7 : 8
@@ -37,7 +36,7 @@ class AnimeCarousel extends Component {
         const prevWidth = this.state.width
         
         //2: 334 - 487
-        if(currWidth <= 487 && (prevWidth >= 488))
+        if(currWidth <= 349 && (prevWidth >= 350))
             this.setState(prevState => {
                 return ({
                     showItems: 2,
@@ -45,8 +44,8 @@ class AnimeCarousel extends Component {
                     index: prevState.index > prevState.pageLength - 2 ? prevState.pageLength - 2 : prevState.index
                 })
             })
-        //3: 488 - 641
-        else if(currWidth >= 488 && currWidth <= 641 && (prevWidth <= 487 || prevWidth >= 642))
+        //3: 350 - 641
+        else if(currWidth >= 350 && currWidth <= 641 && (prevWidth <= 487 || prevWidth >= 642))
             this.setState(prevState => {
                 return ({
                     showItems: 3,
@@ -54,8 +53,8 @@ class AnimeCarousel extends Component {
                     index: prevState.index > prevState.pageLength - 3 ? prevState.pageLength - 3 : prevState.index
                 })
             })
-        //4: 642 - 795
-        else if(currWidth >= 642 && currWidth <= 795 && (prevWidth <= 641 || prevWidth >= 796))
+        //4: 642 - 707
+        else if(currWidth >= 642 && currWidth <= 707 && (prevWidth <= 641 || prevWidth >= 708))
             this.setState(prevState => {
                 return ({
                     showItems: 4,
@@ -63,8 +62,8 @@ class AnimeCarousel extends Component {
                     index: prevState.index > prevState.pageLength - 4 ? prevState.pageLength - 4 : prevState.index
                 })
             })
-        //5: 796 - 1141
-        else if(currWidth >= 796 && currWidth <= 1141 && (prevWidth <= 795 || prevWidth >= 1142))
+        //5: 756 - 1141
+        else if(currWidth >= 708 && currWidth <= 1141 && (prevWidth <= 707 || prevWidth >= 1142))
             this.setState(prevState => {
                 return ({
                     showItems: 5,
@@ -121,7 +120,7 @@ class AnimeCarousel extends Component {
         return(
             <article className="animeCarousell" ref={this.myInput}>
                 <h3 className="animeCarousell__heading" onClick={this.handleNext}>{this.state.heading}</h3>
-                <div className={`animeCarousell__content ${!this.state.isCarousell ? "animeCarousell--extended" : ""}`}>
+                <div className="animeCarousell__content">
                     {animeCaroursellMap}
                 </div>
             </article>

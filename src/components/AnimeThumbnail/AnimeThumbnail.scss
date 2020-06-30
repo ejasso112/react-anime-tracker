@@ -9,7 +9,7 @@
     z-index: 0;
     position: relative;
     overflow: hidden;
-    flex: 1 1 calc(8px * 18);
+    flex: 1 1 calc(8px * 12);
     max-width: calc(8px * 22);
     margin: 16px 5px 22px 5px;
     border-radius: 6px;
@@ -46,6 +46,7 @@
     }
 
     &__title {
+        color: #e9e9e9;
         font-weight: normal;
         font-size: .95em;
         padding-bottom: 1em;
@@ -94,127 +95,6 @@
             @include position(0, 0, 0, 0);
             transition: 100ms ease-in;
         }
-/*
-        .thumbnail__heading {
-            bottom: calc(75% - .8em);
-            transition: 100ms ease-in;
-        }
-        .thumbnail__details {
-            top: 0%;
-            transition: ease-in 100ms;
-        }*/
-    }
-}
-/*
-
-
-.thumbnail{
-    position: relative;
-    flex: 1 1 calc(8px * 18);
-    z-index: 0;
-    margin: 16px 5px 22px 5px;
-    border-radius: 6px;
-    cursor: pointer;
-    overflow: hidden;
-    max-width: calc(8px * 22);
-
-    &:before {
-        display: block;
-        padding-top: 150%;
-        content: "";
-    }
-
-    &__img{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        @include position(0);
-        object-fit: cover;
-    }
-    
-    &__imgOverlay {
-        position: absolute;
-        @include position(0);
-    }
-
-    &__content {
-        position: absolute;
-        @include position(0);
-    }
-
-    &__heading {
-        position: absolute;
-        background-color: rgba($color: #000000, $alpha: .75);
-        padding: .4em .3em;
-        height: 25%;
-        @include position(auto, 0, 0, 0);
-    }
-
-    &__title {
-        font-weight: 600;
-        font-size: .9em;
-    }
-
-    &__details{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 100%;
-
-    }
-
-    &__eps, &__air, &__score, &__type {
-        font-size: .8em;
-        padding: .2vw .4vw;
-
-        span {
-            color: rgba($color: #FFFFFF, $alpha: .5);
-        }
-    }
-    &__eps, &__air {
-        position: absolute;
-        top: calc(25% + .8em);
-    }
-
-    &__air {
-        top: calc(35% + .8em)
-    }
-
-    &__score {
-        position: absolute;
-        bottom: 25%;
-        background-color: rgba($color: #000000, $alpha: .75);
-        right: 0;
-        padding: .2em;
-    }
-
-    &__type {
-        position: absolute;
-        background-color: rgba($color: #000000, $alpha: .75);
-        padding: .1vw .8vw;
-        border-radius: 2em;
-        bottom: .4em;
-        left: .3em
-    }
-
-    &:hover {
-        transform: scale(1.1);
-        transition: ease-in 156ms;
-        z-index: 1;
-
-        .thumbnail__imgOverlay {
-            background-color: rgba($color: #000000, $alpha: 0.4);
-            transition: ease-in 80ms;
-        }
-
-        .thumbnail__heading {
-            bottom: calc(75% - .8em);
-            transition: 100ms ease-in;
-        }
-        .thumbnail__details {
-            top: 0%;
-            transition: ease-in 100ms;
-        }
     }
 
     &--loading{
@@ -222,8 +102,10 @@
         width: 100%;
         height: 100%;
     }
-
 }
 
-
-*/
+@media only screen and (max-width: 450px) {
+    .thumbnail__details {
+        padding: .2em .3em;
+    }
+  }
