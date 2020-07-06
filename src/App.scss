@@ -26,11 +26,15 @@ body {
 }
 
 .container {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     max-width: 1630px;
     padding: 12px 0 32px 0;
+}
+
+.detailsSection {
+    width: 100%;
 }
 
 ::-webkit-scrollbar {

@@ -30,6 +30,11 @@ class AnimeCarousel extends Component {
         this.setState({showItems: newShowItems})
         window.addEventListener('resize', this.updateDimensions);
     }
+
+    componentWillUnmount() {
+        
+        window.removeEventListener('resize', this.updateDimensions);
+    }
     
     updateDimensions = () => {
         const currWidth = this.myInput.current.offsetWidth

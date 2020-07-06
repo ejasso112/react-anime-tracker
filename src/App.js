@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import {BrowserRouter as Router, Route} from "react-router-dom"
-
 import AnimeSeasonalFetch from "./components/AnimeSeasonalBanner/AnimeSeasonalFetch"
+
 import Home from "./components/Home/Home"
+import Details from "./components/Details/Details"
 import Footer from "./components/Footer/Footer"
 
 import "./App.scss"
@@ -24,6 +25,7 @@ class App extends Component {
                     </header>
                     <main className="section section__home">
                         <Route path="/" exact component={Home} />
+                        <Route path="/anime/:id" exact component={Details} />
                     </main>
                     <Footer />
                 </div>

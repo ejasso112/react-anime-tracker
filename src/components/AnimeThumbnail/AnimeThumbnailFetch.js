@@ -16,7 +16,7 @@ class AnimeThumbnailFetch extends Component {
     componentDidMount() {
         const query = `
             query ($id: Int, $type: MediaType) {
-                Media(idMal: $id, type: $type) {
+                Media(id: $id, type: $type) {
                     id
                     idMal
                     coverImage {

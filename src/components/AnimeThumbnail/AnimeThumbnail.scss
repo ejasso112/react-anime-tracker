@@ -53,12 +53,14 @@
     }
 
     &__eps, &__air {
+        color: #FFFFFF;
         font-size: .8em;
         padding: .2em 0;
 
     }
 
     &__score {
+        color: #FFFFFF;
         font-size: .8em;
         position: absolute;
         bottom: 25%;
@@ -68,6 +70,7 @@
     }
 
     &__type {
+        color: #FFFFFF;
         font-size: .8em;
         position: absolute;
         background-color: rgba($color: #000000, $alpha: .75);

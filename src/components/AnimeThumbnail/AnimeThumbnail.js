@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
 import TextTruncate from 'react-text-truncate'
 import "./AnimeThumbnail.scss"
 
@@ -39,7 +40,7 @@ class AnimeThumbnail extends Component {
         const displayAvgScore = entry.averageScore ? entry.averageScore / 10 : "-"
 
         return(
-            <div onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} className="thumbnail">
+            <Link to={`/anime/${entry.id}`} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} className="thumbnail">
                 <img className="thumbnail__img" src={displayThumbnail} alt={displayTitle}></img>
                 <div className="thumbnail__imgOverlay"></div>
                 <div className="thumbnail__content">
@@ -58,7 +59,7 @@ class AnimeThumbnail extends Component {
                     <p className="thumbnail__score"><span className="thumbnail__span">★ </span>{displayAvgScore}</p>
                     <p className="thumbnail__type">{displayFormat}</p>
                 </div>
-            </div>
+            </Link>
         )
     }
 }
