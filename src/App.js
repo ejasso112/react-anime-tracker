@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom"
 import AnimeSeasonalFetch from "./components/AnimeSeasonalBanner/AnimeSeasonalFetch"
 
 import Home from "./components/Home/Home"
+import Nav from "./components/Nav/Nav"
 import Details from "./components/Details/Details"
 import Footer from "./components/Footer/Footer"
 
@@ -23,6 +24,11 @@ class App extends Component {
                             sort="POPULARITY_DESC"
                         />
                     </header>
+
+                    <nav className="section section__nav">
+                        <Nav />
+                    </nav>
+
                     <main className="section section__home">
                         <Route path="/" exact component={Home} />
                         <Route path="/anime/:id" exact component={Details} />

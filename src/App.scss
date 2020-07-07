@@ -23,7 +23,17 @@ body {
     &__header {
         height: 20vw;
     }
+
+    &__nav {
+        z-index: 2;
+        position: sticky;
+        top: 0;
+        background-color: #141414;
+        border-bottom: .2em solid #1a1a1a;
+    }
 }
+
+
 
 .container {
     display: flex;
