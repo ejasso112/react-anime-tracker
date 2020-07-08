@@ -9,13 +9,21 @@ $button_border_radius_left: .6em 0 0 .6em;
 $button_padding: 0.7em;
 $text_field_outline: #E31B6D;
 
-.nav__container {
-    padding: 1.2em 0 !important;
-}
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    &__section {
+        z-index: 2;
+        position: sticky;
+        top: 0;
+        background-color: #141414;
+        border-bottom: .2em solid #1a1a1a;
+    }
+
+    &__container {
+        padding: 1.2em 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     &__left {
         display: flex;

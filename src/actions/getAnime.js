@@ -51,4 +51,3 @@ async function getAnime(params) {
 }
 
 export default getAnime
-

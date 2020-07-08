@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import AnimeSeasonalFetch from "./components/AnimeSeasonalBanner/AnimeSeasonalFetch"
+import AnimeSeasonHeader from "./components/AnimeSeasonHeader/AnimeSeasonHeader"
 
 import Home from "./components/Home/Home"
 import Nav from "./components/Nav/Nav"
@@ -14,21 +14,19 @@ class App extends Component {
         return(
             <Router>
                 <div>
-                    <header className="section section__header">
-                        <AnimeSeasonalFetch
+                    <Route 
+                        path="/" exact
+                        render={(props) => <AnimeSeasonHeader {...props}
                             page={1}
                             perPage={50}
                             season="SUMMER"
                             seasonYear={2020}
                             type="ANIME"
-                            sort="POPULARITY_DESC"
-                        />
-                    </header>
-
-                    <nav className="section section__nav">
-                        <Nav />
-                    </nav>
-
+                            sort="POPULARITY_DESC"/>
+                        } 
+                    />
+                    
+                    <Nav />
                     <main className="section section__home">
                         <Route path="/" exact component={Home} />
                         <Route path="/anime/:id" exact component={Details} />
