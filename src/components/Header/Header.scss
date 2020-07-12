@@ -1,0 +1,57 @@
+.header {
+    &__container {
+        position: relative;
+    }
+
+    &__button {
+        z-index: 3;
+        position: absolute;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &__svg {
+            height: 48px;
+            
+            &--light {
+                fill: rgba($color: #000000, $alpha: 0.05);
+            }
+
+            &--dark {
+                fill: rgba($color: #FFFFFF, $alpha: 0.05);
+            }   
+        }
+
+        &__prev {
+            top: 0;
+            left: 0;
+        }
+
+        &__next {
+            top: 0;
+            right: 0;
+        }
+
+        &:hover {
+            background-color: rgba($color: #000000, $alpha: .5);
+
+            .header__button {
+                &__svg {
+                    fill: rgba($color: #FFFFFF, $alpha: 0.3);
+                    transform: scale(1.1);
+                    transition: ease-in 100ms;
+                }
+            }
+        }
+    }
+
+    
+    &--light {
+        background-color: #F0F0F0;
+    }
+
+    &--dark {
+        background-color: #0F0F0F;
+    }
+}

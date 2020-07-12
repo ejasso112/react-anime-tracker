@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Century Gothic",CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
@@ -15,8 +16,7 @@ body {
 
 .section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
@@ -24,13 +24,6 @@ body {
     width: 100%;
     max-width: 1630px;
 }
-
-.container {
-    display: flex;
-    margin-left: .5em;
-    margin-right: .5em;
-}
-
 
 ::-webkit-scrollbar {
     width: .6vw;

@@ -1,0 +1,318 @@
+//Background Image
+$banner-background-opacity: .12;
+//Sphere
+$banner-sphere-right-tablet: -124px;
+$banner-sphere-top-mobile: -70px;
+$banner-sphere-size: 400px;
+$banner-sphere-size-mobile: 450px;
+$banner-sphere-border-width: 20px;
+//Anime Cover
+$banner-img-top-mobile: 72px;
+$banner-img-width: 190px;
+//Heading
+$banner-heading-top-mobile: 16px;
+$banner-heading-margin-bottom: 8px;
+$banner-heading-font-size: 2.2em;
+$banner-heading-font-size-tablet: 1.8em;
+$banner-heading-letter-spacing: 12px;
+$banner-heading-letter-spacing-tablet: 6px;
+//Title
+$banner-title-margin-top-mobile: 10px;
+$banner-title-margin-bottom-mobile: 10px;
+$banner-title-margin-bottom: 4px;
+$banner-title-font-size: 1.4em;
+//Description and Air Date
+$banner-p-margin-bottom: 16px;
+$banner-p-font-size: 1em;
+$banner-p-line-height: 1.6em;
+$banner-p-line-height-mobile: 1.6em;
+// list and 
+$banner-list-margin-bottom: 12px;
+$banner-list-font-size: .90em;
+$banner-item-margin-right: 12px;
+$banner-item-padding: 2px 8px;
+
+//Modifiers
+$banner-sphere-dark: #dfdfdf;
+$banner-sphere-light: #202020;
+$banner-sphere-border-dark: purple;
+$banner-img-shadow-dark: rgba($color: #000000, $alpha: .7);
+$banner-img-shadow-light: rgba($color: #FFFFFF, $alpha: .2);
+$banner-heading-dark: purple;
+$banner-title-dark: #dfdfdf;
+$banner-title-light: #202020;
+$banner-p-dark: #b8b8b8;
+$banner-p-light: #474747;
+$banner-item-dark: rgb(209, 0, 209);
+$banner-item-background-dark: rgba($color: #FFFFFF, $alpha: .15);
+$banner-item-background-light: rgba($color: #000000, $alpha: .15);
+
+.banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    box-sizing: border-box !important;
+    flex-direction: row-reverse;
+
+    &__background {
+        position: absolute;
+        opacity: $banner-background-opacity;
+        z-index: 1;
+        background-image: url("../../img/banner-background-img.png");
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        filter: grayscale(100%);
+    }
+
+    &__sphere {
+        position: absolute;
+        z-index: 0;
+        right: $banner-sphere-border-width;
+        border-radius: $banner-sphere-size/2;
+        width: $banner-sphere-size;
+        height: $banner-sphere-size;
+
+        &__border {
+            position: absolute;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: ($banner-sphere-size + $banner-sphere-border-width*2)/2;
+            width: $banner-sphere-size + $banner-sphere-border-width*2;
+            height: $banner-sphere-size + $banner-sphere-border-width*2;
+            flex-shrink: 0;
+
+            &--light {
+                border: $banner-sphere-border-width solid $banner-sphere-border-dark;
+            }
+
+            &--dark {
+                border: $banner-sphere-border-width solid $banner-sphere-border-dark;
+            }
+        }
+
+        &--light {
+            background-color: $banner-sphere-light;
+        }
+
+        &--dark {
+            background-color: $banner-sphere-dark;
+        }
+    }
+
+    &__imgContent {
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        margin: $banner-sphere-border-width ($banner-sphere-size - $banner-img-width)/ 2 + $banner-sphere-border-width;
+        border-radius: 8px;
+        width: $banner-img-width;
+        flex-shrink: 0;
+
+        &:before {
+            display: block;
+            content: '';
+            padding-top: 150%;
+        }
+
+        &__img {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &--light {
+            box-shadow: -2px 8px 12px $banner-img-shadow-light;
+        }
+
+        &--dark {
+            box-shadow: -2px 8px 12px $banner-img-shadow-dark;
+        }
+    }
+
+    &__animeContent {
+        z-index: 2;
+        margin: 0 $banner-sphere-border-width;
+        align-self: flex-end;
+
+        &__heading {
+            font-size: $banner-heading-font-size;
+            letter-spacing: $banner-heading-letter-spacing;
+            margin-bottom: $banner-heading-margin-bottom;
+
+            &--light {
+                color: $banner-heading-dark;
+            }
+
+            &--dark {
+                color: $banner-heading-dark;
+            }
+        }
+
+        &__title {
+            display: -webkit-box;
+            overflow: hidden;
+            font-size: $banner-title-font-size;
+            font-weight: bold;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            margin-bottom: $banner-title-margin-bottom;
+
+            &--light {
+                color: $banner-title-light;
+            }
+
+            &--dark {
+                color: $banner-title-dark;
+            }
+        }
+
+        &__description {
+            display: -webkit-box;
+            overflow: hidden;
+            font-size: $banner-p-font-size;
+            line-height: $banner-p-line-height;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            margin-bottom: $banner-p-margin-bottom;
+
+            &--light {
+                color: $banner-p-light;
+            }
+
+            &--dark {
+                color: $banner-p-dark;
+            }
+        }
+
+        &__airDate {
+            font-size: $banner-p-font-size;
+            margin-bottom: $banner-p-margin-bottom;
+
+            &--light {
+                color: $banner-p-light;
+            }
+
+            &--dark {
+                color: $banner-p-dark;
+            }
+        }
+
+        &__list {
+            display: flex;
+            width: 100%;
+            font-size: $banner-list-font-size;
+            flex-wrap: wrap;
+            list-style: none;
+            margin-bottom: $banner-list-margin-bottom;
+        }
+
+        &__item {
+            border-radius: 24px;
+            padding: $banner-item-padding;
+            margin-bottom: $banner-sphere-border-width - $banner-list-margin-bottom;
+            margin-right: $banner-item-margin-right;
+
+            &--light {
+                color: $banner-item-dark;
+                background-color: $banner-item-background-light;
+            }
+
+            &--dark {
+                color: $banner-item-dark;
+                background-color: $banner-item-background-dark;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 630px) {
+    .banner {
+        flex-direction: column;
+
+        &__sphere {
+            top: $banner-sphere-top-mobile + $banner-sphere-border-width;
+            right: auto;
+            border-radius: $banner-sphere-size-mobile/2;
+            width: $banner-sphere-size-mobile;
+            height: $banner-sphere-size-mobile;
+
+
+            &__border {
+                top: $banner-sphere-top-mobile;
+                border-radius: ($banner-sphere-size-mobile + $banner-sphere-border-width*2)/2;
+                width: $banner-sphere-size-mobile + $banner-sphere-border-width*2;
+                height: $banner-sphere-size-mobile + $banner-sphere-border-width*2;
+            }
+        }
+
+        &__imgContent {
+            margin-top: $banner-img-top-mobile;
+            margin-bottom: $banner-sphere-size-mobile + $banner-sphere-top-mobile - $banner-img-width/8*12 + $banner-sphere-border-width*2 - $banner-img-top-mobile;
+
+        }
+
+        &__animeContent {
+            &__heading {
+                &::before {
+                    content: "─";
+                }
+
+                &::after {
+                    content: "─";
+                }
+
+                position: absolute;
+                top: $banner-heading-top-mobile;
+                width: 100%;
+                font-size: $banner-heading-font-size-tablet;
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: $banner-heading-letter-spacing-tablet;
+                margin-left: -$banner-sphere-border-width;
+            }
+
+            &__title {
+                margin-top: $banner-title-margin-top-mobile;
+                margin-bottom: $banner-title-margin-bottom-mobile;
+            }
+
+            &__description {
+                line-height: $banner-p-line-height-mobile;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 631px) {
+    .banner {
+        &__sphere {
+            right: $banner-sphere-right-tablet + $banner-sphere-border-width;
+
+            &__border {
+                right: $banner-sphere-right-tablet;
+            }
+        }
+
+        &__imgContent {
+            margin-right: $banner-sphere-border-width;
+            margin-left: $banner-sphere-size + $banner-sphere-right-tablet - $banner-img-width + $banner-sphere-border-width;
+        }
+
+        &__animeContent {
+            &__heading {
+                font-size: $banner-heading-font-size-tablet;
+                letter-spacing: $banner-heading-letter-spacing-tablet;
+            }
+        }
+    }
+}
