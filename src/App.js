@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import Header from "./components/Header/Header"
-import Nav from "./components/Nav/Nav"
+import Header from "./components/_Header/Header"
+import Nav from "./components/_Nav/Nav"
 import Home from "./components/Home/Home"
 import Details from "./components/Details/Details"
 import Footer from "./components/Footer/Footer"
@@ -21,7 +21,7 @@ class App extends Component {
             <Router>
                 <div>
                     <Route 
-                        path="/" exact
+                        path={["/", "/anime", "/manga", "/search"]} exact
                         render={(props) => <Header {...props}
                             isLight={mode}
                             page={1}
@@ -32,8 +32,12 @@ class App extends Component {
                             sort="POPULARITY_DESC"/>
                         } 
                     />
-
-                    <Nav />
+                    <Route 
+                        path="/"
+                        render={(props) => <Nav {...props}
+                            isLight={mode}/>
+                        } 
+                    />
                     <main className="section section__home">
                         <Route path="/" exact component={Home} />
                         <Route path="/anime/:id" exact component={Details} />

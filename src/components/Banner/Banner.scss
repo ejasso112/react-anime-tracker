@@ -277,7 +277,7 @@ $banner-item-background-light: rgba($color: #000000, $alpha: .15);
                 font-weight: bold;
                 text-align: center;
                 letter-spacing: $banner-heading-letter-spacing-tablet;
-                margin-left: -$banner-sphere-border-width;
+                margin-left: -$banner-sphere-border-width + 3px;
             }
 
             &__title {

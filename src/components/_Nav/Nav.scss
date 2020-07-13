@@ -1,0 +1,16 @@
+$nav-background-dark: #141414;
+$nav-background-light: #EBEBEB;
+
+.nav {
+    &__container {
+        position: relative;
+    }
+    
+    &--light {
+        background-color: $nav-background-light;
+    }
+
+    &--dark {
+        background-color: $nav-background-dark;
+    }
+}
