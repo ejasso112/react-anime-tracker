@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Header from "./components/_Header/Header"
+import Carousel from "./components/Carousel/Carousel"
 import Nav from "./components/_Nav/Nav"
 import Home from "./components/Home/Home"
 import Details from "./components/Details/Details"
@@ -30,7 +31,7 @@ class App extends Component {
                             seasonYear={2020}
                             type="ANIME"
                             sort="POPULARITY_DESC"/>
-                        } 
+                        }
                     />
                     <Route 
                         path="/"
@@ -38,10 +39,22 @@ class App extends Component {
                             isLight={mode}/>
                         } 
                     />
+                    
                     <main className="section section__home">
                         <Route path="/" exact component={Home} />
                         <Route path="/anime/:id" exact component={Details} />
                     </main>
+                    <Carousel 
+                        mode={false} 
+                        params={{
+                            page: 1,
+                            perPage: 50,
+                            season: "SUMMER",
+                            seasonYear: 2020,
+                            type: "ANIME",
+                            sort: "POPULARITY_DESC"
+                        }}
+                    />
                     <Footer />
                 </div>
             </Router>

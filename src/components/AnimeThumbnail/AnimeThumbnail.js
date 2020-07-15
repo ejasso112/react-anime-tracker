@@ -40,7 +40,7 @@ class AnimeThumbnail extends Component {
         const displayAvgScore = entry.averageScore ? entry.averageScore / 10 : "-"
 
         return(
-            <Link to={`/anime/${entry.id}`} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} className="thumbnail">
+            <Link to={`/anime/${entry.id}`} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} className={`thumbnail thumbnail--${this.props.class}`}>
                 <img className="thumbnail__img" src={displayThumbnail} alt={displayTitle}></img>
                 <div className="thumbnail__imgOverlay"></div>
                 <div className="thumbnail__content">
