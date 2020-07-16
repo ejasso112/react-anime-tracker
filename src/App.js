@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Header from "./components/_Header/Header"
-import Carousel from "./components/Carousel/Carousel"
 import Nav from "./components/_Nav/Nav"
-import Home from "./components/Home/Home"
+import Home from "./components/_Home/Home"
+import Anime from "./components/_Anime/Anime"
+import Manga from "./components/_Manga/Manga"
 import Details from "./components/Details/Details"
 import Footer from "./components/Footer/Footer"
 
@@ -18,6 +19,8 @@ class App extends Component {
     }
     render() {
         const mode = this.state.isLight
+        mode ? document.body.classList.add("body--light") : document.body.classList.add("body--dark")
+
         return(
             <Router>
                 <div>
@@ -39,22 +42,25 @@ class App extends Component {
                             isLight={mode}/>
                         } 
                     />
-                    
-                    <main className="section section__home">
-                        <Route path="/" exact component={Home} />
-                        <Route path="/anime/:id" exact component={Details} />
-                    </main>
-                    <Carousel 
-                        mode={false} 
-                        params={{
-                            page: 1,
-                            perPage: 50,
-                            season: "SUMMER",
-                            seasonYear: 2020,
-                            type: "ANIME",
-                            sort: "POPULARITY_DESC"
-                        }}
+                    <Route 
+                        path="/" exact
+                        render={(props) => <Home {...props}
+                            isLight={mode}/>
+                        } 
                     />
+                    <Route 
+                        path="/anime" exact
+                        render={(props) => <Anime {...props}
+                            isLight={mode}/>
+                        } 
+                    />
+                    <Route 
+                        path="/manga" exact
+                        render={(props) => <Manga {...props}
+                            isLight={mode}/>
+                        } 
+                    />
+                    <Route path="/anime/:id" exact component={Details} />
                     <Footer />
                 </div>
             </Router>

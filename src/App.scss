@@ -10,8 +10,14 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-body {
-    background-color: #141414;
+.body {
+    &--dark {
+        background-color: #141414;
+    }
+
+    &--light {
+        background-color: #EBEBEB;
+    }
 }
 
 .section {

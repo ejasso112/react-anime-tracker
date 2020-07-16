@@ -69,17 +69,20 @@ class CarouselContent extends Component {
         console.log(this.state.showItems, this.state.index)
         const dataMap = this.props.data.map(entry => <AnimeThumbnail key={entry.id} data={entry} class={this.state.showItems}/>)
         return(
-            <>  
-                <div className="carouselContent__prev" onClick={this.handlePrev}>
-                    <svg className="carouselContent__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"></path></svg>
+            <div className="carouselContent">
+                <h3 className="carouselContent__heading">{this.props.heading}</h3>
+                <div className="carouselContent__container">
+                    <div className="carouselContent__prev" onClick={this.handlePrev}>
+                        <svg className="carouselContent__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"></path></svg>
+                    </div>
+                    <div className="carouselContent__next" onClick={this.handleNext}>
+                        <svg className="carouselContent__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"></path></svg>
+                    </div>
+                    <div className={`carouselContent__content carouselContent__content--${this.state.transition ? "transition" : ""}`} style={{'transform': `translateX(-${100/this.state.showItems*this.state.index}%)`}} ref={this.myInput}>
+                        {dataMap}
+                    </div>
                 </div>
-                <div className="carouselContent__next" onClick={this.handleNext}>
-                    <svg className="carouselContent__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"></path></svg>
-                </div>
-                <div className={`carouselContent carouselContent--${this.state.transition ? "transition" : ""}`} style={{'transform': `translateX(-${100/this.state.showItems*this.state.index}%)`}} ref={this.myInput}>
-                    {dataMap}
-                </div>
-            </>
+            </div>
         )
     }
 }

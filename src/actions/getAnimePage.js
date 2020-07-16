@@ -1,8 +1,8 @@
 async function getAnimePage(params) {
     const query = `
-        query ($page: Int, $perPage: Int, $season: MediaSeason, $seasonYear: Int, $type: MediaType, $sort: [MediaSort]) {
+        query ($page: Int, $perPage: Int, $status: MediaStatus, $season: MediaSeason, $seasonYear: Int, $type: MediaType, $sort: [MediaSort]) {
             Page(page: $page, perPage: $perPage) {
-                media(season: $season, seasonYear: $seasonYear, type: $type, sort: $sort, genre_not_in: "Hentai") {
+                media(status: $status, season: $season, seasonYear: $seasonYear, type: $type, sort: $sort, genre_not_in: "Hentai") {
                     id
                     description
                     popularity
@@ -37,6 +37,7 @@ async function getAnimePage(params) {
     const variables = {
         page: params.page,
         perPage: params.perPage,
+        status: params.status,
         season: params.season,
         seasonYear: params.seasonYear,
         type: params.type,

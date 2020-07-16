@@ -27,7 +27,7 @@ class Carousel extends Component {
     render() {
         return (
             <div className="carousel">
-                {this.state.isLoading ? <CarouselLoading /> : <CarouselContent mode={this.props.mode} data={this.state.data}/>}            
+                {this.state.isLoading ? <CarouselLoading /> : <CarouselContent mode={this.props.mode} data={this.state.data} heading={this.state.params.heading} />}          
             </div>
         )
     }

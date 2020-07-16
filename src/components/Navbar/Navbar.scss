@@ -57,12 +57,15 @@ $navbar-button-svg-light: #474747;
             padding: $navbar-links-padding;
             font-size: $navbar-logo-font-size;
             font-weight: bold;
+            text-decoration: none;
 
             &--light {
+                color: $navbar-links-light;
                 border-right: $navbar-logo-border-width solid $navbar-logo-border-light;
             }
 
             &--dark {
+                color: $navbar-links-dark;
                 border-right: $navbar-logo-border-width solid $navbar-logo-border-dark;
             }
         }
@@ -70,14 +73,15 @@ $navbar-button-svg-light: #474747;
         &__link {
             padding: $navbar-links-padding;
             font-size: $navbar-link-font-size;
-        }
+            text-decoration: none;
+            
+            &--light {
+                color: $navbar-links-light;
+            }
 
-        &--light {
-            color: $navbar-links-light;
-        }
-
-        &--dark {
-            color: $navbar-links-dark;
+            &--dark {
+                color: $navbar-links-dark;
+            }
         }
     }
 
