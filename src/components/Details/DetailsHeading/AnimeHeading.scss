@@ -7,10 +7,11 @@ $fontSlightFade: rgba($color: #FFFFFF, $alpha: 0.8);
 
 .details__wrapper {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .detailsHeading {
     background-color: $backgroungColor;
-
     &__container {
         padding: 0 !important;
     }
@@ -100,7 +101,6 @@ $fontSlightFade: rgba($color: #FFFFFF, $alpha: 0.8);
     }
 
     &__main {
-        height: 2000px;
         width: 100%;
         margin: 0 2em;
         background-color: green;

@@ -1,0 +1,46 @@
+.DetailsHeader {
+    background-color: rgba($color: #FFFFFF, $alpha: .03);
+
+    &__container {
+        position: relative;
+    }
+
+    &__img {
+        position: absolute;
+        left: 20px;
+        width: 224px;
+        height: 224px/8*12;
+        object-fit: cover;
+    }
+
+    &__content {
+        margin-top: 20px;
+        margin-left: 224px + 50px;
+    }
+
+    &__title {
+        color: #dfdfdf;
+        font-weight: normal;
+        font-size: 1.4em;
+        margin-bottom: 1em;
+    }
+
+    &__description {
+        color: #b8b8b8;
+        font-size: 1em;
+    }
+
+    &__nav{
+        width: 70%;
+        margin-top: 36px;
+        list-style: none;
+        display: flex;
+        padding: 20px 0;
+        justify-content: space-around;
+
+        &__item {
+            color: #b8b8b8;
+            font-size: .9em;
+        }
+    }
+}

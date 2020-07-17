@@ -1,9 +1,8 @@
 import React, { Component } from "react"
-import DetailsHeading from "./DetailsHeading/DetailsHeading"
+import DetailsHeader from "./_DetailsHeader/DetailsHeader"
 import fetchAnime from "../../actions/getAnime"
 
-
-class Details extends Component {
+class Detailsto extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -29,18 +28,21 @@ class Details extends Component {
     }
 
     render() {
-        const entry = !this.state.isLoading && this.state.data
-        return(
-            this.state.isLoading ? <h1>Loading</h1> :
-            <div className="section detailsSection">
-                <div className="container details__container">
-                    <DetailsHeading 
-                        data={entry}
-                    />
-                </div>
-            </div>
+        return (
+            <>
+                {this.state.isLoading ? <h1>Loading</h1>: <DetailsHeader data={this.state.data}/>}
+                {/*<DetailsSidebar />
+                <DeatailsOverview />
+                <DeatailsVideos />
+                <DeatailsEpisodes />
+                <DeatailsReviews />
+                <DeatailsStats />
+                <DeatailsCharStaff />
+                <DeatailsNews />
+                <DeatailsPictures />*/}
+            </>
         )
     }
 }
 
-export default Details
+export default Detailsto
