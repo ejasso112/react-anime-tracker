@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import getAnimePage from "../../actions/getAnimePage"
-import CarouselContent from "./CarouselContent"
-import CarouselLoading from "./CarouselLoading"
-import "./Carousel.scss"
+import BlockContent from "./BlockContent"
+import BlockLoading from "./BlockLoading"
+import "./Block.scss"
 
-class Carousel extends Component {
+class Block extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -39,11 +39,11 @@ class Carousel extends Component {
 
     render() {
         return (
-            <div className="carousel">
-                {this.state.isLoading ? <CarouselLoading /> : <CarouselContent mode={this.props.mode} data={this.state.data} heading={this.state.params.heading} />}          
+            <div className="block">
+                {this.state.isLoading ? <BlockLoading /> : <BlockContent mode={this.props.mode} data={this.state.data} heading={this.state.params.heading} />}          
             </div>
         )
     }
 }
 
-export default Carousel
+export default Block

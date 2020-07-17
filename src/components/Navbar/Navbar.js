@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink, withRouter} from "react-router-dom"
 import "./Navbar.scss"
 
 class Navbar extends Component {
@@ -15,21 +15,25 @@ class Navbar extends Component {
         this.setState({value: event.target.value});
     }
 
+    handleKeyPress = (target) => {
+        if(target.charCode === 13){
+            const { history } = this.props;
+            history.push(`/search?search=${this.state.value}`)  
+          }
+    }
     render() {
         let mode = this.state.isLight ? "light":"dark"
-        console.log(this.state.value)
         return (
             <div className={`navbar navbar--${mode}`}>
                 <ul className={`navbar__links navbar__links--${mode}`}>
                     
-                    <Link to={`/`} className={`navbar__links__logo navbar__links__logo--${mode}`}>AT</Link>
-
-                    <Link to={`/anime`} className={`navbar__links__link navbar__links__link--${mode}`}>Anime</Link>
-                    <Link to={`/manga`} className={`navbar__links__link navbar__links__link--${mode}`}>Manga</Link>
+                    <NavLink to={`/`} className={`navbar__links__logo navbar__links__logo--${mode}`}>AT</NavLink>
+                    <NavLink to={`/anime`} className={`navbar__links__link navbar__links__link--${mode}`}>Anime</NavLink>
+                    <NavLink to={`/manga`} className={`navbar__links__link navbar__links__link--${mode}`}>Manga</NavLink>
                 </ul>
                 <div className={`navbar__search navbar__search--${mode}`}>
-                    <input className={`navbar__search__textfield navbar__search__textfield--${mode}`} type="text" placeholder="Search" onChange={this.handleSearch}/>
-                    <Link to={`/search/${this.state.value}`} className={`navbar__search__search navbar__search__search--${mode}`}>
+                    <input className={`navbar__search__textfield navbar__search__textfield--${mode}`} type="text" placeholder="Search" onChange={this.handleSearch} onKeyPress={e => this.handleKeyPress(e)}/>
+                    <Link to={`/search?search=${this.state.value}`} className={`navbar__search__search navbar__search__search--${mode}`}>
                         <svg className={`navbar__search__search__svg navbar__search__search__svg--${mode}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>
                     </Link>
                     <div className={`navbar__search__advSearch navbar__search__advSearch--${mode}`}>
@@ -48,4 +52,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default withRouter (Navbar)

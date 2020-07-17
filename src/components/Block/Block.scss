@@ -1,0 +1,41 @@
+.block {
+    position: relative;
+    border: solid;
+    border-width: 0px 0px .2em 0px;
+    border-image: linear-gradient(90deg, rgba($color: #FFF, $alpha: 0), rgba($color: #FFF, $alpha: .05), rgba($color: #FFF, $alpha: 0));
+    border-image-slice: 1;
+    padding-bottom: 16px;
+    margin: 24px 20px;
+}
+
+.blockContent {
+    &__heading {
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        font-size: 1.2em;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    &__container {
+        position: relative;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        width: 100%;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &--transition {
+            transition: 750ms cubic-bezier(.4,.1,.2,1);
+        }
+    
+    }
+}

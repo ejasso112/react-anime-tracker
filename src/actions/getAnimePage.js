@@ -1,8 +1,8 @@
 async function getAnimePage(params) {
     const query = `
-        query ($page: Int, $perPage: Int, $status: MediaStatus, $season: MediaSeason, $seasonYear: Int, $type: MediaType, $sort: [MediaSort]) {
+        query ($page: Int, $perPage: Int, $status: MediaStatus, $season: MediaSeason, $seasonYear: Int, $type: MediaType, $sort: [MediaSort], $search: String) {
             Page(page: $page, perPage: $perPage) {
-                media(status: $status, season: $season, seasonYear: $seasonYear, type: $type, sort: $sort, genre_not_in: "Hentai") {
+                media(status: $status, season: $season, seasonYear: $seasonYear, type: $type, sort: $sort, genre_not_in: "Hentai", search: $search) {
                     id
                     description
                     popularity
@@ -41,7 +41,8 @@ async function getAnimePage(params) {
         season: params.season,
         seasonYear: params.seasonYear,
         type: params.type,
-        sort: params.sort
+        sort: params.sort,
+        search: params.search
     }
 
     const url = "https://graphql.anilist.co",

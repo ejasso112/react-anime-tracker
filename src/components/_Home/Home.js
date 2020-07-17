@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Carousel from "../Carousel/Carousel"
+import Block from "../Block/Block"
 
 class Home extends Component {
     render() {
@@ -12,7 +13,7 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 status: "NOT_YET_RELEASED",
                                 type: "ANIME",
                                 sort: "POPULARITY_DESC",
@@ -23,7 +24,7 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 status: "NOT_YET_RELEASED",
                                 type: "MANGA",
                                 sort: "POPULARITY_DESC",
@@ -34,7 +35,7 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 status: "RELEASING",
                                 type: "ANIME",
                                 sort: "POPULARITY_DESC",
@@ -45,7 +46,7 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 status: "RELEASING",
                                 type: "MANGA",
                                 sort: "POPULARITY_DESC",
@@ -56,7 +57,7 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 type: "ANIME",
                                 sort: "TRENDING_DESC",
                                 heading: "Trending Anime"
@@ -67,7 +68,7 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 type: "MANGA",
                                 sort: "TRENDING_DESC",
                                 heading: "Trending Manga"
@@ -77,7 +78,7 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 type: "ANIME",
                                 sort: "POPULARITY_DESC",
                                 heading: "Most Popular Anime"
@@ -87,27 +88,27 @@ class Home extends Component {
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 type: "MANGA",
                                 sort: "POPULARITY_DESC",
                                 heading: "Most Popular Manga"
                             }}
                         />
-                        <Carousel 
+                        <Block 
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 type: "ANIME",
                                 sort: "FAVOURITES_DESC",
                                 heading: "All Time Favorite Anime"
                             }}
                         />
-                        <Carousel 
+                        <Block 
                             isLight={this.props.isLight}
                             params={{
                                 page: 1,
-                                perPage: 50,
+                                perPage: 45,
                                 type: "MANGA",
                                 sort: "FAVOURITES_DESC",
                                 heading: "All Time Favorite Manga"

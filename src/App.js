@@ -5,7 +5,9 @@ import Nav from "./components/_Nav/Nav"
 import Home from "./components/_Home/Home"
 import Anime from "./components/_Anime/Anime"
 import Manga from "./components/_Manga/Manga"
+import Search from "./components/_Search/Search"
 import Details from "./components/Details/Details"
+import Detailsto from "./components/_Details/Details"
 import Footer from "./components/Footer/Footer"
 
 import "./App.scss"
@@ -23,9 +25,9 @@ class App extends Component {
 
         return(
             <Router>
-                <div>
+                <>
                     <Route 
-                        path={["/", "/anime", "/manga", "/search"]} exact
+                        path={["/", "/anime", "/manga", "/search", "/search/:value"]} exact
                         render={(props) => <Header {...props}
                             isLight={mode}
                             page={1}
@@ -60,9 +62,16 @@ class App extends Component {
                             isLight={mode}/>
                         } 
                     />
+                    <Route 
+                        path="/search" exact
+                        render={(props) => <Search {...props}
+                            isLight={mode}/>
+                        } 
+                    />
+                    <Route path="/anime/:id" exact component={Detailsto} />
                     <Route path="/anime/:id" exact component={Details} />
                     <Footer />
-                </div>
+                </>
             </Router>
         )
     }
