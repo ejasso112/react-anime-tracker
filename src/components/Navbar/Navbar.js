@@ -41,8 +41,10 @@ class Navbar extends Component {
                     </div>
                 </div>
                 <ul className={`navbar__account navbar__account--${mode}`}>
-                    <li className={`navbar__account__item navbar__account__item--${mode}`}>Log In</li>
-                    <li className={`navbar__account__item navbar__account__item--active`}>Sign Up</li>
+                    <li className={`navbar__account__item navbar__account__item--${mode}`}><NavLink to={'/login'}>Log In</NavLink></li>
+                    <li className="navbar__account__item">
+                        <a className=" navbar__account__item navbar__account__item--active" href="https://anilist.co/signup" target="_blank" rel="noopener noreferrer">Sign Up</a>
+                    </li>
                     <li className={`navbar__account__profile navbar__account__profile--${mode}`}>
                         <svg className={`navbar__account__profile__svg navbar__account__profile__svg--${mode}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>
                     </li>

@@ -32,19 +32,21 @@ $banner-list-font-size: .90em;
 $banner-item-margin-right: 12px;
 $banner-item-padding: 2px 8px;
 
+@import "../../global-style-variables.scss";
+
 //Modifiers
-$banner-sphere-dark: #dfdfdf;
-$banner-sphere-light: #202020;
-$banner-sphere-border-dark: purple;
+$banner-sphere-dark: $secondary-font-color-dark;
+$banner-sphere-light: $secondary-font-color-light;
+$banner-sphere-border-dark: $highlight-color;
 $banner-img-shadow-dark: rgba($color: #000000, $alpha: .7);
 $banner-img-shadow-light: rgba($color: #FFFFFF, $alpha: .2);
-$banner-heading-dark: purple;
-$banner-title-dark: #dfdfdf;
-$banner-title-light: #202020;
-$banner-p-dark: #b8b8b8;
-$banner-p-light: #474747;
-$banner-item-dark: rgb(209, 0, 209);
-$banner-item-background-dark: rgba($color: #FFFFFF, $alpha: .15);
+$banner-heading-dark: $highlight-color;
+$banner-title-dark: $primary-font-color-dark;
+$banner-title-light: $primary-font-color-light;
+$banner-p-dark: $secondary-font-color-dark;
+$banner-p-light: $secondary-font-color-light;
+$banner-item-dark: $highlight-color;
+$banner-item-background-dark: rgba($color: #FFFFFF, $alpha: .08);
 $banner-item-background-light: rgba($color: #000000, $alpha: .15);
 
 .banner {
@@ -219,7 +221,6 @@ $banner-item-background-light: rgba($color: #000000, $alpha: .15);
             padding: $banner-item-padding;
             margin-bottom: $banner-sphere-border-width - $banner-list-margin-bottom;
             margin-right: $banner-item-margin-right;
-
             &--light {
                 color: $banner-item-dark;
                 background-color: $banner-item-background-light;

@@ -1,5 +1,8 @@
-$nav-background-dark: #141414;
-$nav-background-light: #EBEBEB;
+@import "../../global-style-variables.scss";
+
+//Modifiers
+$nav-background-dark: $secondary-color-dark;
+$nav-background-light: $secondary-color-light;
 
 .nav {
     &__container {
