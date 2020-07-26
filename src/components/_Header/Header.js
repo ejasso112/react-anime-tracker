@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Banner from "../Banner/Banner"
+import BannerLoading from "../Banner/BannerLoading"
 import getAnimePage from "../../actions/getAnimePage"
 import "./Header.scss"
 
@@ -51,7 +52,6 @@ class Header extends Component {
         const mode = this.state.isLight ? "light":"dark"
 
         return (
-            this.state.isLoading ? <h1>Loading</h1> :
             <header className={`section header header--${mode}`}>
                 <div className="containerWrapper header__containerWrapper">
                     <div className="container header__container">
@@ -59,8 +59,10 @@ class Header extends Component {
                             <svg className={`header__button__svg header__button__svg--${mode} header__button__prev__svg`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>
                         </div>
 
-                        <Banner isLight={this.state.isLight} data={this.state.data[this.state.index]} />
-
+                        {this.state.isLoading ?
+                            <BannerLoading isLight={this.state.isLight} /> :
+                            <Banner isLight={this.state.isLight} data={this.state.data[this.state.index]} />
+                        }
                         <div className="header__button header__button__next" onClick={this.handleClickNext}>
                             <svg className={`header__button__svg header__button__svg--${mode} header__button__next__svg`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
                         </div>

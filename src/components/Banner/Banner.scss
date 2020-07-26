@@ -111,6 +111,7 @@ $banner-item-background-light: rgba($color: #000000, $alpha: .15);
         position: relative;
         z-index: 2;
         overflow: hidden;
+        background-color: $tertiary-color-dark;
         margin: $banner-sphere-border-width ($banner-sphere-size - $banner-img-width)/ 2 + $banner-sphere-border-width;
         border-radius: 8px;
         width: $banner-img-width;
@@ -166,6 +167,13 @@ $banner-item-background-light: rgba($color: #000000, $alpha: .15);
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1;
             margin-bottom: $banner-title-margin-bottom;
+
+            &__loading {
+                background-color: $tertiary-color-dark;
+                width: 300px;
+                height: 24px;
+                border-radius: 12px;
+            }
 
             &--light {
                 color: $banner-title-light;
@@ -231,6 +239,40 @@ $banner-item-background-light: rgba($color: #000000, $alpha: .15);
                 background-color: $banner-item-background-dark;
             }
         }
+
+        &__loading {
+            margin-left: $banner-sphere-border-width;
+            width: 100vw;
+            z-index: 1;
+            align-self: flex-end;
+            margin-bottom: $banner-sphere-border-width;
+
+
+            &__heading {
+                background: $tertiary-color-dark;
+                width: 200px;
+                height: 36px;
+                border-radius: 12px;
+                margin-bottom: $banner-heading-margin-bottom;
+                
+            }
+
+            &__title {
+                background: $tertiary-color-dark;
+                width: 50%;
+                height: 24px;
+                border-radius: 12px;
+                margin-bottom: $banner-heading-margin-bottom;
+            }
+
+            &__description {
+                background: $tertiary-color-dark;
+                width: 80%;
+                height: 128px;
+                border-radius: 12px;
+                margin-bottom: $banner-title-margin-bottom;
+            }
+        }
     }
 }
 
@@ -288,6 +330,25 @@ $banner-item-background-light: rgba($color: #000000, $alpha: .15);
 
             &__description {
                 line-height: $banner-p-line-height-mobile;
+            }
+
+            &__loading {
+                &__heading {
+                    position: absolute;
+                    top: $banner-heading-top-mobile;
+                    left: 25%;
+                    width: 50%;
+                }
+
+                &__title {
+                    margin-top: $banner-title-margin-top-mobile;
+                    margin-bottom: $banner-title-margin-bottom-mobile;
+                    margin-left: $banner-sphere-border-width;
+                }
+
+                &__description {
+                    margin-left: $banner-sphere-border-width;
+                }
             }
         }
     }
