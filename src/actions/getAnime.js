@@ -15,14 +15,68 @@ async function getAnime(params) {
                     native
                     userPreferred
                 }
+                format
                 episodes
+                status
                 startDate {
                     year
                     month
                     day
+                }            
+                endDate {
+                    year
+                    month
+                    day
                 }
+                studios {
+                    edges {
+                        isMain
+                        node {
+                            id
+                            name
+                        }
+                    }
+                }
+                rankings {
+                    rank
+                    allTime
+                    type
+                }
+
+                relations {
+                    edges {
+                      node {
+                        id
+                        startDate {
+                          year
+                          month
+                          day
+                        }
+                        episodes
+                        format
+                        averageScore
+                        title {
+                          romaji
+                          english
+                          native
+                          userPreferred
+                        }
+                        coverImage {
+                          extraLarge
+                          large
+                          medium
+                          color
+                        }
+                      }
+                    }
+                  }
+
+                season
+                seasonYear
+                source
+                genres
+                synonyms
                 averageScore
-                format
                 description
             }
         }

@@ -3,13 +3,11 @@ import "./DetailsHeader.scss"
 
 class DetailsHeader extends Component {
     render() {
-        console.log(this.props)
         let entry = this.props.data;
         return(
             <div className="section DetailsHeader">
                 <div className="containerWrapper DetailsHeader__containerWrapper">
                     <div className="container DetailsHeader__container">
-                        <img className="DetailsHeader__img" src={entry.coverImage.large} alt={entry.title.userPreferred}></img>
                         
                         <div className="DetailsHeader__content">
                             <h1 className="DetailsHeader__title">{entry.title.userPreferred}</h1>

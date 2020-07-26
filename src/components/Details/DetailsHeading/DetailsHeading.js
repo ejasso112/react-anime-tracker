@@ -14,29 +14,6 @@ class DetailsHeading extends Component {
         console.log(entry)
         return (
             <div className="details__wrapper section">
-                <div className="detailsHeading section">
-                    <article className="detailsHeading__container container">
-                        <div className="detailsHeading__top">
-                            <img className="detailsHeading__top__img" src={entry.coverImage.large} alt={entry.title.userPreferred}></img>
-                            <div className="detailsHeading__top__content">
-                                <div>
-                                    <h1 className="detailsHeading__top__title">{entry.title.userPreferred}</h1>
-                                    <p className="detailsHeading__top__description" dangerouslySetInnerHTML={{__html: entry.description}}></p>
-                                </div>
-                                <ul className="detailsHeading__top__nav">
-                                    <li className="detailsHeading__top__nav__item">Overview</li>
-                                    <li className="detailsHeading__top__nav__item">Videos</li>
-                                    <li className="detailsHeading__top__nav__item">Episodes</li>
-                                    <li className="detailsHeading__top__nav__item">Reviews</li>
-                                    <li className="detailsHeading__top__nav__item">Stats</li>
-                                    <li className="detailsHeading__top__nav__item">Characters/Staff</li>
-                                    <li className="detailsHeading__top__nav__item">News</li>
-                                    <li className="detailsHeading__top__nav__item">Pictures</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                </div>
                 <div className="detailsContent container">        
                     <div className="detailsContent__sidebar">
                         <p className="detailsContent__sidebar__item">Airing</p>

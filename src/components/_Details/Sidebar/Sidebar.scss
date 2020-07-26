@@ -1,0 +1,38 @@
+.sidebar {
+    background-color: rgba($color: #FFFFFF, $alpha: .03);
+    width: 224px;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    &__img {
+        border-radius: 16px;
+        width: 224px;
+        height: 224px/8*12;
+        object-fit: cover;
+        margin-bottom: 20px;
+
+    }
+
+    &__item {
+        font-size: 1em;
+        padding-bottom: .3em;
+    }
+
+    &__list {
+        list-style: none;
+        
+        padding-bottom: 1em;
+
+        &__item{
+            margin-bottom: .1em;
+            font-weight: lighter;
+            font-size: .8em;
+            color: #b8b8b8;
+
+            &__status, &__season, &__source {
+                text-transform: capitalize;
+            }
+        }
+    }
+}

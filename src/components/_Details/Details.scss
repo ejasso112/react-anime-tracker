@@ -1,0 +1,17 @@
+.details {
+    &__section {
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    &__containerWrapper {
+        position: relative;
+    }
+
+    &__sidebar {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+}

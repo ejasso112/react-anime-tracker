@@ -6,8 +6,8 @@ import Home from "./components/_Home/Home"
 import Anime from "./components/_Anime/Anime"
 import Manga from "./components/_Manga/Manga"
 import Search from "./components/_Search/Search"
-import Details from "./components/Details/Details"
-import Detailsto from "./components/_Details/Details"
+import Details from "./components/_Details/Details"
+import Login from "./Pages/Login/Login"
 import Footer from "./components/Footer/Footer"
 
 import "./App.scss"
@@ -68,8 +68,16 @@ class App extends Component {
                             isLight={mode}/>
                         } 
                     />
-                    <Route path="/anime/:id" exact component={Detailsto} />
                     <Route path="/anime/:id" exact component={Details} />
+
+                    
+                    <Route 
+                        path="/login" exact
+                        render={(props) => <Login {...props}
+                            isLight={mode}/>
+                        } 
+                    />
+
                     <Footer />
                 </>
             </Router>

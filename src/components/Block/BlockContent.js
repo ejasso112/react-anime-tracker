@@ -12,8 +12,6 @@ class BlockContent extends Component {
             transition: false
         }
         this.updateShowItemsAmount = this.updateShowItemsAmount.bind(this)
-        this.handlePrev = this.handlePrev.bind(this)
-        this.handleNext = this.handleNext.bind(this)
         
         this.myInput = React.createRef()
     }
@@ -45,28 +43,7 @@ class BlockContent extends Component {
         })
     }
 
-    handlePrev = () => {
-        this.setState(prevState =>{
-            return ({
-                transition: true,
-                index: prevState.index === 0 ? prevState.maxIndex - prevState.showItems + 1 : 
-                prevState.index - prevState.showItems <= 0 ? 0 : prevState.index - prevState.showItems
-            })
-        })
-    }
-
-    handleNext = () => {
-        this.setState(prevState =>{
-            return ({
-                transition: true,
-                index: prevState.index + prevState.showItems < prevState.maxIndex - prevState.showItems ? prevState.index + prevState.showItems :
-                prevState.index + prevState.showItems > prevState.maxIndex ? 0 : prevState.maxIndex - prevState.showItems + 1
-            })
-        })
-    }
-
     render() {
-        console.log(this.state.showItems, this.state.index)
         const dataMap = this.props.data.map(entry => <AnimeThumbnail key={entry.id} data={entry} class={this.state.showItems}/>)
         return(
             <div className="blockContent">

@@ -7,8 +7,15 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "concurrently": "^5.2.0",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
     "dateformat": "^3.0.3",
+    "express": "^4.17.1",
     "node-sass": "^4.14.1",
+    "ordinal": "^1.0.3",
+    "passport": "^0.4.1",
+    "passport-anilist": "^1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -21,8 +28,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "nodemon server/server.js",
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run server\" "
   },
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
   },

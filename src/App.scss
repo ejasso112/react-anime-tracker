@@ -1,3 +1,9 @@
+@import "./global-style-variables.scss";
+
+//Modifiers
+$body-background-dark: $primary-color-dark;
+$body-background-light: $primary-color-light;
+
 * {
     margin: 0;
     padding: 0;
@@ -12,11 +18,11 @@ html {
 
 .body {
     &--dark {
-        background-color: #141414;
+        background-color: $body-background-dark;
     }
 
     &--light {
-        background-color: #EBEBEB;
+        background-color: $body-background-light;
     }
 }
 
@@ -31,6 +37,9 @@ html {
     max-width: 1630px;
 }
 
+a {
+    text-decoration: none;
+}
 ::-webkit-scrollbar {
     width: .6vw;
   }
