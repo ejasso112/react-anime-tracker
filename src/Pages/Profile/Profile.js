@@ -1,6 +1,11 @@
 import React, { Component } from "react"
+import { Route } from "react-router-dom"
 import getUserMediaList from "../../actions/getUserMediaList"
-import MediaListTable from "../../components/displayMedia/MediaListTable/MediaListTable"
+
+import ProfileNav from "../../components/navigations/NavProfile/NavProfile"
+import AnimeList from "./AnimeList/AnimeList"
+
+import "./Profile.scss"
 
 class Profile extends Component {
     constructor(props) {
@@ -19,18 +24,31 @@ class Profile extends Component {
     }
 
     render() {
-        const UserAnimeListNames = this.state.isUserLoaded && this.state.userData.ANIME.lists.map((listEntry, i) => 
-            <MediaListTable key={i} title={listEntry.name} entries={listEntry.entries}/>
-        )
         return(
-            <>
-                <header>
-                    <h1>Welcome to your Profile</h1>
+            this.state.isUserLoaded &&
+            <section className="section profile__section">
+                <header className="profile__header">
+                    <div className="container">
+                        <h1 className="profile__header__title">Welcome <span>{this.state.user.user.name}</span></h1>
+                    </div>
                 </header>
-                <main>
-                    {UserAnimeListNames}
-                </main>
-            </>
+                
+                <nav className="profile__nav">
+                    <Route 
+                        path={this.props.location.pathname}
+                        render={(props) => <ProfileNav {...props}
+                                name={this.state.user.user.name}/>
+                            }
+                    />
+                </nav>
+                    
+                <Route 
+                    path={`/profile/:userName/animelist`}
+                    render={(props) => <AnimeList {...props}
+                        userData={this.state.userData}/>
+                    }
+                />
+            </section>
         )
     }
 }

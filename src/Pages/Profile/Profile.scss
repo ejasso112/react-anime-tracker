@@ -1,0 +1,23 @@
+@import "../../global-style-variables.scss";
+
+.profile {
+    &__section {
+        flex-direction: column;
+    }
+
+    &__header {
+        background: rgb(23,16,33);
+background: linear-gradient(0deg, rgba(23,16,33,1) 0%, rgba(24,24,27,1) 100%);
+
+        &__title {
+            margin: 20px;
+            & span {
+                font-size: 1.4em;
+                color: $highlight-color;
+            }
+        }
+    }
+    &__nav {
+        background-color: #171021;
+    }
+}

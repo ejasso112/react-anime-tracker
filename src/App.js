@@ -88,7 +88,7 @@ class App extends Component {
                         />
 
                         {context.user && <Route 
-                            path="/profile/:userName" exact
+                            path="/profile/:userName"
                             render={(props) => <Profile {...props}
                                 isLight={mode}
                                 user={context.user}/>
