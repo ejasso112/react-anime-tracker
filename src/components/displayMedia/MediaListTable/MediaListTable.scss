@@ -1,0 +1,53 @@
+.mediaListTable {
+    &__contents {
+        background-color: rgba($color: #000000, $alpha: 0.05);
+        padding: 24px;
+        border-radius: 16px;
+
+        &__heading {
+            &__row {
+                &__cover, &__title, &__score, &__type, &__progress {
+                    padding: 20px;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                &__score, &__type, &__progress {
+                    width: 12%;
+                    text-align: center;
+                }
+
+                &__title {
+                    width: 100% - 36%;
+                    text-align: left;
+                }
+            }
+        }
+
+        &__table {
+            &__card {
+                &__cover, &__title, &__score, &__type, &__progress {
+                    padding: 4px 10px;
+                    border-bottom: 1px solid #ddd
+                }
+    
+                &__cover, &__score, &__type, &__progress {
+
+                    text-align: center;
+                }
+    
+                &__title {
+                    text-align: left;
+                    padding-left: 20px;
+                }
+                
+            }
+        }
+    }
+}
+
+.img {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    object-fit: cover;
+}

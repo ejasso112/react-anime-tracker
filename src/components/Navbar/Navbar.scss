@@ -181,6 +181,7 @@ $navbar-button-svg-light: $primary-font-color-light;
     &__account {
         display: flex;
         list-style: none;
+        height: 42px;
 
         &__item {
             flex-shrink: 0;
@@ -208,6 +209,7 @@ $navbar-button-svg-light: $primary-font-color-light;
 
         &__profile {
             display: flex;
+            position: relative;
             flex-shrink: 0;
             align-items: center;
             border-radius: $navbar-button-border-radius;
@@ -226,7 +228,6 @@ $navbar-button-svg-light: $primary-font-color-light;
                     fill: $navbar-button-svg-dark;
                 }
             }
-
             
             &--light {
                 background-color: $navbar-button-light;

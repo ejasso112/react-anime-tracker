@@ -6,6 +6,7 @@ class Navbar extends Component {
     constructor(props) {
         super()
         this.state = {
+            user: props.user,
             isLight: props.isLight,
             value: ''
         }
@@ -23,6 +24,9 @@ class Navbar extends Component {
     }
     render() {
         let mode = this.state.isLight ? "light":"dark"
+        const isLoggedIn = this.state.user.isLoggedIn
+        const user = this.state.user.user
+
         return (
             <div className={`navbar navbar--${mode}`}>
                 <ul className={`navbar__links navbar__links--${mode}`}>
@@ -40,15 +44,14 @@ class Navbar extends Component {
                         <svg className={`navbar__search__advSearch__svg navbar__search__advSearch__svg--${mode}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496 384H160v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h80v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h336c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160h-80v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h336v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h80c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160H288V48c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16C7.2 64 0 71.2 0 80v32c0 8.8 7.2 16 16 16h208v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h208c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16z" /></svg>
                     </div>
                 </div>
-                <ul className={`navbar__account navbar__account--${mode}`}>
-                    <li className={`navbar__account__item navbar__account__item--${mode}`}><NavLink to={'/login'}>Log In</NavLink></li>
-                    <li className="navbar__account__item">
-                        <a className=" navbar__account__item navbar__account__item--active" href="https://anilist.co/signup" target="_blank" rel="noopener noreferrer">Sign Up</a>
-                    </li>
-                    <li className={`navbar__account__profile navbar__account__profile--${mode}`}>
+                <div className={`navbar__account navbar__account--${mode}`}>
+                    {isLoggedIn && <a className={`navbar__account__item navbar__account__item--${mode}`} href={'/auth/logout'}>Logout</a>}
+                    {!isLoggedIn && <NavLink className={`navbar__account__item navbar__account__item--${mode}`} to={'/login'}>Log In</NavLink>}
+                    {!isLoggedIn && <a className=" navbar__account__item navbar__account__item--active" href="https://anilist.co/signup" target="_blank" rel="noopener noreferrer">Sign Up</a>}
+                    <NavLink className={`navbar__account__profile navbar__account__profile--${mode}`} to={isLoggedIn ? `/profile/${user.name}` : `/login`}>
                         <svg className={`navbar__account__profile__svg navbar__account__profile__svg--${mode}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>
-                    </li>
-                </ul>
+                    </NavLink>
+                </div>
             </div>
         )
     }

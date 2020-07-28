@@ -24,7 +24,10 @@ app.use("/auth", authRoutes)
 app.get("/user", (req, res) => {
     console.log("getting user data!")
     console.log(req.user)
-    res.send(req.user)
+    
+    req.user ? 
+    res.send({user: req.user, isLoggedIn : true}) : 
+    res.send({user: null, isLoggedIn : false})
 })
 
 app.listen(process.env.PORT || 5000, console.log("server is on"))
